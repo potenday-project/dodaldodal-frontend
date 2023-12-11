@@ -3,14 +3,14 @@
     "source.fixAll.eslint": "explicit"
   },
   "material-icon-theme.folders.associations": {
+    "_assets": "Resource",
     "_components": "Components",
     "_constants": "Constant",
     "_hooks": "Hook",
     "_service": "Api",
-    "_store": "Container",
+    "_styles": "Css",
     "_types": "Typescript",
     "_utils": "Utils",
-    "_styles": "Css",
     "(route)": "Routes"
   }
 }
