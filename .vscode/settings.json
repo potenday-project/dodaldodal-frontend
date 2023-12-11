@@ -13,5 +13,6 @@
     "_utils": "Utils",
     "(route)": "Routes"
   },
-  "css.lint.unknownAtRules": "ignore"
+  "css.lint.unknownAtRules": "ignore",
+  "cSpell.words": ["KAKAO"]
 }
