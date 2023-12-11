@@ -12,5 +12,6 @@
     "_types": "Typescript",
     "_utils": "Utils",
     "(route)": "Routes"
-  }
+  },
+  "css.lint.unknownAtRules": "ignore"
 }
