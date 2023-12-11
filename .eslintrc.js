@@ -10,6 +10,7 @@ module.exports = {
     'standard-with-typescript',
     'plugin:import/recommended',
     'plugin:@tanstack/eslint-plugin-query/recommended',
+    'plugin:tailwindcss/recommended',
     'prettier',
   ],
   overrides: [],
