@@ -1,5 +1,5 @@
 #!/bin/sh
 cd ../
 mkdir output
-cp -R ./312TEN034-frontend/* ./output
-cp -R ./output ./312TEN034-frontend/
+cp -R ./dodaldodal-frontend/* ./output
+cp -R ./output ./dodaldodal-frontend/
