@@ -6,7 +6,15 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lint:fix": "eslint ./**/*.{js,jsx,ts,tsx} --cache --fix",
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "prettier --write",
+      "eslint --fix"
+    ]
   },
   "dependencies": {
     "clsx": "^2.0.0",
@@ -31,6 +39,9 @@
     "eslint-plugin-n": "^15.0.0 || ^16.0.0 ",
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.33.2",
+    "gitmoji-cli": "^9.0.0",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.2.0",
     "postcss": "^8",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.9",
