@@ -1,3 +1,4 @@
+import BottomNavigation from '@/app/_components/shared/bottom-navigation'
 import Header from '@/app/_components/shared/header'
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -5,6 +6,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     <main>
       <Header />
       {children}
+      <BottomNavigation />
     </main>
   )
 }
