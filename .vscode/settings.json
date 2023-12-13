@@ -13,6 +13,11 @@
     "_utils": "Utils",
     "(route)": "Routes"
   },
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "css.validate": false,
+  "editor.inlineSuggest.enabled": true,
   "css.lint.unknownAtRules": "ignore",
   "cSpell.words": ["KAKAO"]
 }

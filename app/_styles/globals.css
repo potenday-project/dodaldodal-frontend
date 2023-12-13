@@ -4,4 +4,9 @@
 
 html {
   background-color: #140a29;
+  height: 100%;
+}
+
+body {
+  height: 100%;
 }
