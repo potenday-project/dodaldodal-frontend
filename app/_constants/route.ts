@@ -1,7 +1,7 @@
 export const ROUTE = {
-  HOME: '/',
+  INDEX: '/',
+  HOME: '/home',
   LOGIN: '/login',
-  SIGNUP: '/signup',
   OAUTH: {
     KAKAO: {
       CALLBACK: '/oauth/callback/kakao',

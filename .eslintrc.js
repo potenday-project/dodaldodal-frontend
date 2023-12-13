@@ -18,8 +18,14 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module',
   },
-  plugins: ['react', 'import', '@tanstack/query'],
+  plugins: ['react', 'import', '@tanstack/query', 'tailwindcss'],
   rules: {
+    'tailwindcss/no-custom-classname': [
+      'warn',
+      {
+        whitelist: ['^.*dodal.*$'],
+      },
+    ],
     curly: ['error', 'all'],
     eqeqeq: [
       'error',

@@ -1,24 +1,29 @@
-import { Inter } from 'next/font/google'
+import localFont from 'next/font/local'
 
 import type { Metadata } from 'next'
 
 import '@/app/_styles/globals.css'
 import Providers from '@/app/_components/providers/QueryClientProvider'
 
-const inter = Inter({ subsets: ['latin'] })
+import { cn } from '../_styles/utils'
+
+const myFont = localFont({
+  src: '../_assets/fonts/PretendardVariable.woff2',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: '도달도달',
-  description: '도달도달',
+  description: '1:1 매칭 목표 달성 서비스',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       <head>
-        <link rel='icon' href='../favicon.png' sizes='any' />
+        <link rel='icon' href='../../favicon.ico' sizes='any' />
       </head>
-      <body className={inter.className}>
+      <body className={cn(myFont.className, 'mx-auto max-w-3xl text-white')}>
         <Providers>{children}</Providers>
       </body>
     </html>
