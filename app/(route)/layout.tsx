@@ -1,6 +1,7 @@
 import { Inter } from 'next/font/google'
 
 import type { Metadata } from 'next'
+
 import '@/app/_styles/globals.css'
 import Providers from '@/app/_components/providers/QueryClientProvider'
 

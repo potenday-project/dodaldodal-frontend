@@ -67,5 +67,6 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/non-nullable-type-assertion-style': 'off',
+    '@typescript-eslint/promise-function-async': 'off',
   },
 }

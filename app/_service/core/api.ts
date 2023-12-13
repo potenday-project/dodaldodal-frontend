@@ -1,12 +1,12 @@
 import axios, { type AxiosRequestConfig } from 'axios'
 
-import { getApiEndpoint } from './api.utils'
 import type { ServerResponse } from './api.types'
+import { getApiEndpoint } from './api.utils'
 
 const createApi = () => {
   const _api = axios.create({
     baseURL: getApiEndpoint(),
-    withCredentials: true,
+    // withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     },
