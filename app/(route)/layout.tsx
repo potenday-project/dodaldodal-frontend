@@ -13,7 +13,7 @@ const myFont = localFont({
 })
 
 export const metadata: Metadata = {
-  title: '도달도달',
+  title: '도달도달 - 1:1 매칭 목표 달성 서비스',
   description: '1:1 매칭 목표 달성 서비스',
 }
 
