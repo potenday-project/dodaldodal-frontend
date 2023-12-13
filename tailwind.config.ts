@@ -8,7 +8,8 @@ const config: Config = {
   theme: {
     extend: {
       backgroundImage: {
-        'home-background': "url('/images/home_bg.png')",
+        'login-background': "url('/images/login_background.png')",
+        'home-background': "url('/images/home_background.png')",
       },
       backgroundColor: {
         'dodal-main': '#140A29',

@@ -18,7 +18,7 @@ export default function Home() {
   }
 
   return (
-    <main className='flex h-full min-h-screen flex-col items-center justify-between pb-24 pt-28'>
+    <main className='flex h-full min-h-screen flex-col items-center justify-between bg-login-background bg-cover bg-center bg-no-repeat pb-24 pt-28'>
       <div className='flex flex-col items-center gap-5'>
         <Image src='/images/logo.png' width={155} height={155} alt='도달 로고' />
         <span>1:1 매칭 목표 달성 서비스</span>
