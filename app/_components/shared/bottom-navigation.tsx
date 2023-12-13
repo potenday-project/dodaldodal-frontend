@@ -1,7 +1,7 @@
 export default function BottomNavigation() {
   return (
     <div className='fixed bottom-0 left-0 z-10 flex h-14 w-full justify-center bg-dodal-main'>
-      <div className='w-full max-w-3xl'>
+      <div className='w-full max-w-lg'>
         <div className='flex h-full items-center justify-around'>
           <svg xmlns='http://www.w3.org/2000/svg' width='24' height='28' viewBox='0 0 24 28' fill='none'>
             <path

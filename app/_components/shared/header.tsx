@@ -1,7 +1,7 @@
 export default function Header() {
   return (
     <header className='fixed left-0 top-11 z-10 flex h-11 w-full items-center justify-center'>
-      <div className='flex w-full max-w-3xl justify-between px-4 py-1'>
+      <div className='flex w-full max-w-lg justify-between px-4 py-1'>
         <div />
         <svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'>
           <path

@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <link rel='icon' href='../../favicon.ico' sizes='any' />
       </head>
-      <body className={cn(myFont.className, 'mx-auto max-w-3xl text-white')}>
+      <body className={cn(myFont.className, 'mx-auto max-w-lg text-white')}>
         <Providers>{children}</Providers>
       </body>
     </html>

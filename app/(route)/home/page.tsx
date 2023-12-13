@@ -11,8 +11,8 @@ export default function HomePage() {
       <div className='text-xl'>🌙 탐사 필요 0</div>
       <div className='mt-3 text-xl'>🌕 탐사 완료 5</div>
 
-      <div className='absolute bottom-16 right-2'>
-        <div className='relative h-[529px] w-[297px]'>
+      <div className='absolute bottom-[7%] right-2'>
+        <div className='relative aspect-[297/529] h-[50vh] w-full'>
           <Image src='/images/RED1.png' fill alt='' />
         </div>
       </div>
