@@ -13,22 +13,22 @@ import { getKakaoAccessToken, removeKakaoAccessToken, setAccessToken } from '@/a
 
 import { useLoginQuery, useSignUpMutation } from './queries'
 
-const PROFILES = {
+const CHAMPION = {
   DEFAULT: {
-    RED: '/images/profile-red-1.png',
-    YELLOW: '/images/profile-yellow-1.png',
-    GREEN: '/images/profile-green-1.png',
-    BLUE: '/images/profile-blue-1.png',
-    BEIGE: '/images/profile-beige-1.png',
-    PINK: '/images/profile-pink-1.png',
+    RED: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_red.png',
+    YELLOW: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_yellow.png',
+    GREEN: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_green.png',
+    BLUE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_blue.png',
+    BEIGE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_beige.png',
+    PINK: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_pink.png',
   },
   SELECTED: {
-    RED: '/images/profile-red-1-selected.png',
-    YELLOW: '/images/profile-yellow-1-selected.png',
-    GREEN: '/images/profile-green-1-selected.png',
-    BLUE: '/images/profile-blue-1-selected.png',
-    BEIGE: '/images/profile-beige-1-selected.png',
-    PINK: '/images/profile-pink-1-selected.png',
+    RED: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_red.png',
+    YELLOW: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_yellow.png',
+    GREEN: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_green.png',
+    BLUE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_blue.png',
+    BEIGE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_beige.png',
+    PINK: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/selected_profile_pink.png',
   },
 }
 
@@ -36,7 +36,7 @@ interface Inputs {
   nickname: string
 }
 
-export default function Register() {
+export default function SignUp() {
   const router = useRouter()
 
   const [selectedChampion, setSelectedChampion] = useState<Champion>('RED')
@@ -104,7 +104,7 @@ export default function Register() {
           <div className='mt-10 flex flex-col items-center'>
             <Image
               className='rounded-full bg-white'
-              src={PROFILES.DEFAULT[selectedChampion]}
+              src={CHAMPION.DEFAULT[selectedChampion]}
               width={187}
               height={187}
               alt=''
@@ -128,7 +128,7 @@ export default function Register() {
             </div>
           </div>
           <div className='mx-auto grid w-fit grid-cols-3 gap-x-3 gap-y-4'>
-            {Object.keys(PROFILES.DEFAULT).map((champion) => (
+            {Object.keys(CHAMPION.DEFAULT).map((champion) => (
               <button
                 key={champion}
                 onClick={() => {
@@ -139,8 +139,8 @@ export default function Register() {
                   className='rounded-full bg-white'
                   src={
                     selectedChampion === champion
-                      ? PROFILES.SELECTED[champion as Champion]
-                      : PROFILES.DEFAULT[champion as Champion]
+                      ? CHAMPION.SELECTED[champion as Champion]
+                      : CHAMPION.DEFAULT[champion as Champion]
                   }
                   width={80}
                   height={80}

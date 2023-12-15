@@ -1,14 +1,14 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getChallenges } from '@/app/_service/challenge'
+import { getTodayStatus } from '@/app/_service/challenge'
 
 const QUERY_KEY = {
-  challenges: ['challenges'],
+  todayStatus: ['todayStatus'],
 }
 
-export const useChallengesQuery = () => {
+export const useTodayStatusQuery = () => {
   return useQuery({
-    queryKey: QUERY_KEY.challenges,
-    queryFn: () => getChallenges(),
+    queryKey: QUERY_KEY.todayStatus,
+    queryFn: () => getTodayStatus(),
   })
 }

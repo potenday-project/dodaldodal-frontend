@@ -1,5 +1,7 @@
 import api from '../core/api'
 
-export const getChallenges = () => {
-  return api.get('/challenges')
+import { type GetTodayStatus } from './challenge.types'
+
+export const getTodayStatus = () => {
+  return api.get<GetTodayStatus>('/challenges/today')
 }

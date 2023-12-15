@@ -2,14 +2,25 @@
 
 import Image from 'next/image'
 
-import { useChallengesQuery } from './queries'
+import { useTodayStatusQuery } from './queries'
+
+export const CHAMPION = {
+  RED: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/red.png',
+  YELLOW: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/yellow.png',
+  GREEN: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/green.png',
+  BLUE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/blue.png',
+  BEIGE: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/beige.png',
+  PINK: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/pink.png',
+}
 
 export default function HomePage() {
-  const challengesQuery = useChallengesQuery()
+  const todayStatusQuery = useTodayStatusQuery()
 
-  if (!challengesQuery.isSuccess) {
+  if (!todayStatusQuery.isSuccess) {
     return null
   }
+
+  const { champion, certificatedCount, explorationCount } = todayStatusQuery.data.data
 
   return (
     <div className='relative h-full px-8 py-4 pt-16'>
@@ -18,12 +29,12 @@ export default function HomePage() {
         <div className='h-[88px] text-[88px] font-extrabold leading-[88px] text-[#8A72FF]'>100</div>
         <span className='text-[40px] font-extrabold'>%</span>
       </div>
-      <div className='text-xl'>🌙 탐사 필요 0</div>
-      <div className='mt-3 text-xl'>🌕 탐사 완료 5</div>
+      <div className='text-xl'>🌙 탐사 필요 {explorationCount}</div>
+      <div className='mt-3 text-xl'>🌕 탐사 완료 {certificatedCount}</div>
 
       <div className='absolute bottom-[7%] right-2'>
-        <div className='relative aspect-[297/529] h-[50vh] w-full'>
-          <Image src='/images/RED1.png' fill alt='' />
+        <div className='relative aspect-[297/529] h-[60vh] w-full'>
+          <Image src={CHAMPION[champion]} fill alt='' />
         </div>
       </div>
     </div>
