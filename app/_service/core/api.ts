@@ -6,7 +6,6 @@ import { getApiEndpoint } from './api.utils'
 const createApi = () => {
   const _api = axios.create({
     baseURL: getApiEndpoint(),
-    // withCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     },

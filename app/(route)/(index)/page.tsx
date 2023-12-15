@@ -1,6 +1,16 @@
+'use client'
+
 import Image from 'next/image'
 
+import { useChallengesQuery } from './queries'
+
 export default function HomePage() {
+  const challengesQuery = useChallengesQuery()
+
+  if (!challengesQuery.isSuccess) {
+    return null
+  }
+
   return (
     <div className='relative h-full px-8 py-4 pt-16'>
       <h1 className='text-2xl'>오늘의 도달률</h1>

@@ -3,9 +3,9 @@ import localFont from 'next/font/local'
 import type { Metadata } from 'next'
 
 import '@/app/_styles/globals.css'
-import Providers from '@/app/_components/providers/QueryClientProvider'
 
-import { cn } from '../_styles/utils'
+import CoreProvider from '@/app/_components/providers/CoreProvider'
+import { cn } from '@/app/_styles/utils'
 
 const myFont = localFont({
   src: '../_assets/fonts/PretendardVariable.woff2',
@@ -25,7 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='icon' href='../../favicon.ico' sizes='any' />
       </head>
       <body className={cn(myFont.className, 'mx-auto max-w-lg text-white')}>
-        <Providers>{children}</Providers>
+        <CoreProvider>{children}</CoreProvider>
       </body>
     </html>
   )
