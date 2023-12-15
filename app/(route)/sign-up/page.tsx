@@ -131,6 +131,7 @@ export default function SignUp() {
             {Object.keys(CHAMPION.DEFAULT).map((champion) => (
               <button
                 key={champion}
+                type='button'
                 onClick={() => {
                   setSelectedChampion(champion as Champion)
                 }}

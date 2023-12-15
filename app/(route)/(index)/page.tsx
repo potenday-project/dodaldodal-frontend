@@ -21,12 +21,13 @@ export default function HomePage() {
   }
 
   const { champion, certificatedCount, explorationCount } = todayStatusQuery.data.data
+  const successRate = Math.round((certificatedCount / (certificatedCount + explorationCount)) * 100) || 0
 
   return (
     <div className='relative h-full px-8 py-4 pt-16'>
       <h1 className='text-2xl'>오늘의 도달률</h1>
       <div className='mb-7 flex items-end'>
-        <div className='h-[88px] text-[88px] font-extrabold leading-[88px] text-[#8A72FF]'>100</div>
+        <div className='h-[88px] text-[88px] font-extrabold leading-[88px] text-[#8A72FF]'>{successRate}</div>
         <span className='text-[40px] font-extrabold'>%</span>
       </div>
       <div className='text-xl'>🌙 탐사 필요 {explorationCount}</div>
@@ -34,7 +35,7 @@ export default function HomePage() {
 
       <div className='absolute bottom-[7%] right-2'>
         <div className='relative aspect-[297/529] h-[60vh] w-full'>
-          <Image src={CHAMPION[champion]} fill alt='' />
+          <Image src={CHAMPION[champion]} fill alt={champion} />
         </div>
       </div>
     </div>
