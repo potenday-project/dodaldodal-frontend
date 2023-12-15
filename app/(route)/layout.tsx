@@ -21,6 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <head>
+        <meta httpEquiv='Content-Security-Policy' content='upgrade-insecure-requests' />
         <link rel='icon' href='../../favicon.ico' sizes='any' />
       </head>
       <body className={cn(myFont.className, 'mx-auto max-w-lg text-white')}>
