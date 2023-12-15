@@ -3,7 +3,7 @@ const KAKAO_ACCESS_TOKEN = 'KAT'
 const DODAL_TOKEN = 'DODAL_TOKEN'
 
 export const getKakaoAccessToken = () => {
-  return sessionStorage.getItem(KAKAO_ACCESS_TOKEN)
+  return typeof window !== 'undefined' ? sessionStorage.getItem(KAKAO_ACCESS_TOKEN) : null
 }
 
 export const setKakaoAccessToken = (token: string) => {
@@ -15,7 +15,7 @@ export const removeKakaoAccessToken = () => {
 }
 
 export const getAccessToken = () => {
-  return localStorage.getItem(DODAL_TOKEN)
+  return typeof window !== 'undefined' ? localStorage.getItem(DODAL_TOKEN) : null
 }
 
 export const setAccessToken = (token: string) => {
