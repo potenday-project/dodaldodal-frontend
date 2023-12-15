@@ -8,6 +8,7 @@ import { useQuery } from '@tanstack/react-query'
 
 import { ROUTE } from '@/app/_constants/route'
 import { getTokenByAuthorizationCode } from '@/app/_service/auth'
+import { setKakaoAccessToken } from '@/app/_utils/token'
 
 import { QUERY_KEY } from './queries'
 
@@ -15,31 +16,22 @@ export default function KaKaoCallbackPage() {
   const router = useRouter()
 
   const searchParams = useSearchParams()
-  const code = searchParams.get('code')
+  const code = searchParams.get('code') as string
 
   const { isSuccess, data } = useQuery({
-    queryKey: QUERY_KEY.KAKAO_TOKEN(code as string),
+    queryKey: QUERY_KEY.KAKAO_TOKEN(code),
     queryFn: async () =>
       await getTokenByAuthorizationCode({
-        code: code as string,
+        code,
       }),
-    enabled: code !== null,
   })
 
   useEffect(() => {
     if (isSuccess) {
-      router.push(ROUTE.HOME)
+      setKakaoAccessToken(data.data.access_token)
+      router.push(ROUTE.SIGN_UP)
     }
   }, [isSuccess])
 
-  if (!isSuccess) {
-    return null
-  }
-
-  return (
-    <div>
-      <span>{code}</span>
-      <span>{data.data.access_token}</span>
-    </div>
-  )
+  return null
 }

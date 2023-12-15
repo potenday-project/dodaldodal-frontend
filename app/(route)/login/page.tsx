@@ -1,34 +1,17 @@
-'use client'
-
 import Image from 'next/image'
-
-import { useState } from 'react'
 
 import { KAKAO } from '@/app/_constants/kakao'
 
-import ChooseProfile from './_components/choose-profile'
-
-type Step = 'login' | 'profile'
-
 export default function Home() {
-  const [step, setStep] = useState<Step>('login')
-
-  if (step === 'profile') {
-    return <ChooseProfile />
-  }
-
   return (
     <main className='flex h-full min-h-screen flex-col items-center justify-between bg-login-background bg-cover bg-center bg-no-repeat pb-24 pt-28'>
       <div className='flex flex-col items-center gap-5'>
         <Image src='/images/logo.png' width={155} height={155} alt='도달 로고' />
         <span>1:1 매칭 목표 달성 서비스</span>
       </div>
-      <button
+      <a
         className='flex h-11 w-[260px] items-center justify-center gap-1 rounded-xl bg-dodal-kakao p-4 text-black'
-        onClick={() => {
-          setStep('profile')
-        }}
-        // href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${KAKAO.REST_API_KEY}&redirect_uri=${KAKAO.REDIRECT_URI}`}
+        href={`https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${KAKAO.REST_API_KEY}&redirect_uri=${KAKAO.REDIRECT_URI}`}
       >
         <svg xmlns='http://www.w3.org/2000/svg' width='28' height='26' viewBox='0 0 28 26' fill='none'>
           <path
@@ -38,7 +21,7 @@ export default function Home() {
           />
         </svg>
         <span>카카오로 시작하기</span>
-      </button>
+      </a>
     </main>
   )
 }

@@ -5,7 +5,7 @@ export interface ServerResponse<T> {
 }
 
 export interface ServerError {
-  responseMessage: string
-  data: boolean
-  statusCode: number
+  success: boolean
+  message: string
+  err: Error
 }

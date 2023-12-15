@@ -9,3 +9,15 @@ export interface GetTokenFromKakaoResponse {
   refresh_token_expires_in: number
   token_type: string
 }
+
+export interface LoginResponse {
+  token: string
+}
+
+export type Champion = 'RED' | 'YELLOW' | 'GREEN' | 'BLUE' | 'BEIGE' | 'PINK'
+
+export interface SignUpParams {
+  accessToken: string
+  nickname: string
+  champion: Champion
+}
