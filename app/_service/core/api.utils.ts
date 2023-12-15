@@ -7,10 +7,10 @@ const getAppEnv = (): AppEnv => (process.env.NEXT_PUBLIC_APP_ENV as Exclude<AppE
 export const getApiEndpoint = () => {
   switch (getAppEnv()) {
     case 'production':
-      return SERVER_URL
+      return SERVER_URL + '/api'
     case 'development':
-      return SERVER_URL
+      return SERVER_URL + '/api'
     default:
-      return SERVER_URL
+      return SERVER_URL + '/api'
   }
 }
