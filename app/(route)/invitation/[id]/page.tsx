@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 
 import { ROUTE } from '@/app/_constants/route'
+import { useUserQuery } from '@/app/_hooks/useUserQuery'
 
 import { useApproveChallengeMutation, useUpcomingChallengeQuery } from './queries'
 
@@ -15,6 +16,7 @@ export default function InvitationPage({
   }
 }) {
   const router = useRouter()
+  const userQuery = useUserQuery()
 
   const upcomingChallengeQuery = useUpcomingChallengeQuery({
     challengeId: Number(params.id),
@@ -44,7 +46,7 @@ export default function InvitationPage({
               },
               {
                 onSuccess: () => {
-                  router.push(ROUTE.LOGIN)
+                  router.push(userQuery.isSuccess ? ROUTE.CHALLENGE : ROUTE.LOGIN)
                 },
               }
             )

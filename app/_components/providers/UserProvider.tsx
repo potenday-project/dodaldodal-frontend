@@ -4,10 +4,8 @@ import { usePathname, useRouter } from 'next/navigation'
 
 import { createContext, useContext, useEffect } from 'react'
 
-import { useQuery } from '@tanstack/react-query'
-
 import { ROUTE } from '@/app/_constants/route'
-import { getUser } from '@/app/_service/auth'
+import { useUserQuery } from '@/app/_hooks/useUserQuery'
 import { type User } from '@/app/_types/user'
 
 interface UserContextType {
@@ -30,12 +28,7 @@ export const UserContextProvider = ({ children }: { children: React.ReactNode })
   const pathname = usePathname()
   const router = useRouter()
 
-  const userQuery = useQuery({
-    queryKey: ['user'],
-    queryFn: () => {
-      return getUser()
-    },
-  })
+  const userQuery = useUserQuery()
 
   useEffect(() => {
     const isPublicPath =
