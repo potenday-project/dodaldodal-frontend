@@ -6,19 +6,35 @@ import { cn } from '@/app/_styles/utils'
 
 import ChallengeCard from './_components/ChallengeCard'
 import ChallengeFormDialog from './_components/ChallengeFormDialog'
+import { useChallengesQuery } from './queries'
 
 export default function ChallengePage() {
-  const [tab, setTab] = useState<'ongoing' | 'completed'>('ongoing')
+  const [isOpenDialog, setIsOpenDialog] = useState(false)
+
+  const [tab, setTab] = useState<'inProgress' | 'completed'>('inProgress')
+
+  const challengesQuery = useChallengesQuery()
+
+  if (!challengesQuery.isSuccess) {
+    return null
+  }
+
+  const challenges = challengesQuery.data.data
+
+  const inProgressChallenges = challenges.filter((challenge) => challenge.challenge_status === 'PROGRESS')
+  const completedChallenges = challenges.filter((challenge) => challenge.challenge_status === 'SUCCESS')
+
+  const challengesByTab = tab === 'inProgress' ? inProgressChallenges : completedChallenges
 
   return (
-    <div className='relative flex max-h-full flex-col gap-4 px-6 pt-[88px]'>
+    <div className='relative flex h-full max-h-full flex-col gap-4 px-6 pt-[88px]'>
       <div className='flex w-full'>
         <button
           className={cn('flex h-12 w-1/2 items-center justify-center border-b border-white font-semibold', {
-            'border-b-[#595959] text-[#595959]': tab !== 'ongoing',
+            'border-b-[#595959] text-[#595959]': tab !== 'inProgress',
           })}
           onClick={() => {
-            setTab('ongoing')
+            setTab('inProgress')
           }}
         >
           진행중
@@ -34,12 +50,12 @@ export default function ChallengePage() {
           완료
         </button>
       </div>
-      <div className='flex flex-col gap-3 overflow-y-auto pb-20'>
-        {new Array(10).fill(0).map((_, index) => {
-          return <ChallengeCard key={index} />
+      <div className='flex flex-1 flex-col gap-3 overflow-y-auto pb-20'>
+        {challengesByTab.map((challenge) => {
+          return <ChallengeCard key={challenge.id} challenge={challenge} />
         })}
       </div>
-      <ChallengeFormDialog />
+      <ChallengeFormDialog isOpenDialog={isOpenDialog} setIsOpenDialog={setIsOpenDialog} />
     </div>
   )
 }

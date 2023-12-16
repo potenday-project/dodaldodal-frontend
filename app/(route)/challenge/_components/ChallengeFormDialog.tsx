@@ -36,8 +36,12 @@ interface Inputs {
   reward: string
 }
 
-export default function ChallengeFormDialog() {
-  const [isOpenDialog, setIsOpenDialog] = useState(false)
+interface ChallengeFormDialogProps {
+  isOpenDialog: boolean
+  setIsOpenDialog: (isOpen: boolean) => void
+}
+
+export default function ChallengeFormDialog({ isOpenDialog, setIsOpenDialog }: ChallengeFormDialogProps) {
   const [selectedCategory, setSelectedCategory] = useState<Category | '선택안함'>('선택안함')
   const [isChecked, setIsChecked] = useState({
     check1: false,

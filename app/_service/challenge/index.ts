@@ -6,6 +6,7 @@ import {
   type GetTodayStatus,
   type GetUpcomingChallengeParams,
   type GetUpcomingChallengeResponse,
+  type GetChallengesResponse,
 } from './challenge.types'
 
 export const getTodayStatus = () => {
@@ -23,4 +24,14 @@ export const createChallenge = ({ name, category, authenticationMethod, reward }
 
 export const getUpcomingChallenge = ({ challengeId }: GetUpcomingChallengeParams) => {
   return api.get<GetUpcomingChallengeResponse>(`/challenges/upcoming/${challengeId}`)
+}
+
+export const approveChallenge = ({ challengeId }: { challengeId: number }) => {
+  return api.post(`/challenges/approve`, {
+    challengeId,
+  })
+}
+
+export const getChallenges = () => {
+  return api.get<GetChallengesResponse>('/challenges')
 }
