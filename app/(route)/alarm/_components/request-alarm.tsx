@@ -43,7 +43,7 @@ export default function RequestAlarm({ alarm }: RequestAlarmProps) {
           onClick={() => {
             approveCertificationAlarmMutation.mutate(
               {
-                memberId: alarm.member_id,
+                alarmId: alarm.id,
                 challengeCertificationId: alarm.challenge_certification_id,
               },
               {
@@ -63,7 +63,7 @@ export default function RequestAlarm({ alarm }: RequestAlarmProps) {
           onClick={() => {
             rejectCertificationAlarmMutation.mutate(
               {
-                memberId: alarm.member_id,
+                alarmId: alarm.id,
                 challengeCertificationId: alarm.challenge_certification_id,
               },
               {
