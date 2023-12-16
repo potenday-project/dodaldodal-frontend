@@ -37,6 +37,7 @@ interface Inputs {
 }
 
 export default function ChallengeFormDialog() {
+  const [isOpenDialog, setIsOpenDialog] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<Category | '선택안함'>('선택안함')
   const [isChecked, setIsChecked] = useState({
     check1: false,
@@ -71,13 +72,14 @@ export default function ChallengeFormDialog() {
             imageUrl: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/dodaldodal_square.png',
             sendUrl: `https://dodaldodal-frontend.vercel.app/invitation/${challengeId}`,
           })
+          setIsOpenDialog(false)
         },
       }
     )
   }
 
   return (
-    <Dialog>
+    <Dialog open={isOpenDialog} onOpenChange={setIsOpenDialog}>
       <DialogTrigger className='absolute bottom-16 right-8'>
         <button>
           <AddIcon />
