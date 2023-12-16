@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           }}
         />
         <Header.Title>챌린지</Header.Title>
-        <div />
+        <div className='w-9' />
       </Header>
       {children}
       <BottomNavigation selected='challenge' />
