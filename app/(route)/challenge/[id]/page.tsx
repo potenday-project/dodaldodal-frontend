@@ -2,9 +2,15 @@
 
 import Image from 'next/image'
 
+import { useRef, useState } from 'react'
+
 import CameraIcon from '@/app/_components/icons/CameraIcon'
 
+import CertificationDialog from './_components/certification-dialog'
+
 export default function ChallengeDetailPage() {
+  const [isOpenCertificationDialog, setIsOpenCertificationDialog] = useState(false)
+
   return (
     <div className='flex-1 overflow-y-auto'>
       <div className='mx-10 flex flex-col justify-center border-b border-[#A6A6A6] pb-4'>
@@ -13,35 +19,7 @@ export default function ChallengeDetailPage() {
           <span className='h-4 w-fit rounded-[2px] bg-[#FFCD4B] px-1 text-[10px]'>운동</span>
           <div className='flex items-center justify-between'>
             <span className='text-[22px] font-semibold'>하루 스쿼트 100개</span>
-            <button
-              onClick={async () => {
-                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)
-
-                if (isMobile) {
-                  // 모바일에서는 카메라로 연결
-                  try {
-                    const stream = await navigator.mediaDevices.getUserMedia({ video: true })
-                    // 여기에서 웹캠 스트림을 사용하여 추가적인 작업 수행
-                    console.log('Camera stream:', stream)
-                  } catch (error) {
-                    console.error('Error accessing camera:', error)
-                  }
-                } else {
-                  // 데스크탑에서는 파일 선택
-                  const input = document.createElement('input')
-                  input.type = 'file'
-                  input.accept = 'image/*' // 미디어 타입에 따라 변경
-                  input.onchange = (event) => {
-                    const file = event.target?.files[0]
-                    // 여기에서 파일을 사용하여 추가적인 작업 수행
-                    console.log('Selected file:', file)
-                  }
-                  input.click()
-                }
-              }}
-            >
-              <CameraIcon />
-            </button>
+            <CertificationDialog open={isOpenCertificationDialog} setOpen={setIsOpenCertificationDialog} />
           </div>
           <div className='flex items-center gap-[10px]'>
             <div className='relative h-6 w-6 rounded-full bg-white'>
