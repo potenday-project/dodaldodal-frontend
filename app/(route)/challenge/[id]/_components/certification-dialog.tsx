@@ -1,4 +1,6 @@
-import { useRef } from 'react'
+import Image from 'next/image'
+
+import { useRef, useState } from 'react'
 
 import AddPhotoIcon from '@/app/_components/icons/AddPhotoIcon'
 import BlackCloseIcon from '@/app/_components/icons/BlackCloseIcon'
@@ -12,9 +14,10 @@ interface CertificationDialogProps {
 
 export default function CertificationDialog({ open, setOpen }: CertificationDialogProps) {
   const inputRef = useRef<HTMLInputElement>(null)
+  const [selectedImage, setSelectedImage] = useState(null)
 
   return (
-    <Dialog>
+    <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger>
         <button>
           <CameraIcon />
@@ -27,17 +30,50 @@ export default function CertificationDialog({ open, setOpen }: CertificationDial
           </DialogClose>
           <span className='text-center text-lg font-semibold text-[#140A29]'>인증 사진 업로드</span>
           <div className='flex flex-col justify-center gap-7'>
-            <input className='hidden' ref={inputRef} type='file' accept='image/*' />
-            <button
-              className='mx-auto flex h-[212px] w-[212px] items-center justify-center rounded-lg bg-[#A6A6A6]'
-              onClick={() => {
-                inputRef.current?.click()
+            <input
+              className='hidden'
+              ref={inputRef}
+              type='file'
+              accept='image/*'
+              onChange={(event) => {
+                const file = event.target?.files[0]
+
+                if (file) {
+                  // FileReader를 사용하여 파일을 읽음
+                  const reader = new FileReader()
+
+                  reader.onload = (e) => {
+                    // 파일을 읽은 후에 이미지 URL을 상태에 저장
+                    setSelectedImage(e.target?.result)
+                  }
+
+                  reader.readAsDataURL(file)
+                }
               }}
-            >
-              <AddPhotoIcon />
-            </button>
+            />
+            {selectedImage ? (
+              <div className='relative mx-auto h-[212px] w-[212px]'>
+                <Image className='rounded-lg' src={selectedImage} fill alt='' />
+              </div>
+            ) : (
+              <button
+                className='mx-auto flex h-[212px] w-[212px] items-center justify-center rounded-lg bg-[#A6A6A6]'
+                onClick={() => {
+                  inputRef.current?.click()
+                }}
+              >
+                <AddPhotoIcon />
+              </button>
+            )}
             <div className='flex gap-3'>
-              <button className='h-11 w-1/2 rounded-lg bg-[#A6A6A6] text-sm font-semibold'>재촬영</button>
+              <button
+                className='h-11 w-1/2 rounded-lg bg-[#A6A6A6] text-sm font-semibold'
+                onClick={() => {
+                  inputRef.current?.click()
+                }}
+              >
+                재촬영
+              </button>
               <button className='h-11 w-1/2 rounded-lg bg-[#482BD9] text-sm font-semibold'>확인</button>
             </div>
           </div>

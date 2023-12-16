@@ -9,7 +9,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter()
 
   return (
-    <div className='flex h-full flex-col bg-challenge-background bg-cover bg-center bg-no-repeat pb-20 pt-28'>
+    <div className='flex h-full flex-col bg-challenge-background bg-cover bg-center bg-no-repeat pb-16 pt-28'>
       <Header>
         <Header.BackIcon
           onClick={() => {
