@@ -21,6 +21,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </Header>
       {children}
       <BottomNavigation selected='challenge' />
+      <script
+        src='https://t1.kakaocdn.net/kakao_js_sdk/2.5.0/kakao.min.js'
+        integrity='sha384-kYPsUbBPlktXsY6/oNHSUDZoTX6+YI51f63jCPEIPFP09ttByAdxd2mEjKuhdqn4'
+        crossOrigin='anonymous'
+        defer
+      ></script>
     </main>
   )
 }

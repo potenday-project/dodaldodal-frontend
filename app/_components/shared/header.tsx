@@ -3,11 +3,20 @@ import Link from 'next/link'
 import { type ButtonHTMLAttributes } from 'react'
 
 import { ROUTE } from '@/app/_constants/route'
+import { cn } from '@/app/_styles/utils'
 
-export default function Header({ children }: { children: React.ReactNode }) {
+interface HeaderProps extends React.HTMLAttributes<HTMLHeadElement> {
+  children: React.ReactNode
+  className?: string
+}
+
+export default function Header({ children, className, ...props }: HeaderProps) {
   return (
-    <header className='fixed left-0 top-8 z-10 flex h-11 w-full items-center justify-center'>
-      <div className='flex w-full max-w-lg justify-between px-4 py-1'>{children}</div>
+    <header
+      className={cn('fixed left-0 top-0 z-10 flex h-[88px] w-full items-center justify-center pt-8', className)}
+      {...props}
+    >
+      <div className='flex w-full max-w-lg items-center justify-between px-4 py-1'>{children}</div>
     </header>
   )
 }
@@ -48,9 +57,11 @@ function Title({ children }: { children: React.ReactNode }) {
   return <div className='text-2xl font-semibold text-white'>{children}</div>
 }
 
-function Close() {
+interface CloseProps extends React.HTMLAttributes<HTMLButtonElement> {}
+
+function Close({ ...props }: CloseProps) {
   return (
-    <button>
+    <button {...props}>
       <svg xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewBox='0 0 36 36' fill='none'>
         <path
           fillRule='evenodd'

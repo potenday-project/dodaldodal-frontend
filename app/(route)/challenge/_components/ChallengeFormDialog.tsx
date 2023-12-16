@@ -10,6 +10,8 @@ import BlackCloseIcon from '@/app/_components/icons/BlackCloseIcon'
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/app/_components/shared/dialog'
 import { cn } from '@/app/_styles/utils'
 
+import { share } from '../_utils'
+
 import ChallengeForm from './challenge-form-input'
 
 type Category = '자기계발' | '생활습관' | '공부' | '운동' | '기타' | '선택안함'
@@ -97,6 +99,14 @@ export default function ChallengeFormDialog() {
               'mx-auto min-h-[60px] w-[240px] rounded-lg bg-[#482BD9] text-center',
               'disabled:bg-[#A6A6A6]'
             )}
+            onClick={() => {
+              share.kakao({
+                title: '불주먹123님이 초대장을 보냈어요!',
+                description: '1:1 목표 매칭 서비스',
+                imageUrl: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/dodaldodal_square.png',
+                link: 'https://dodaldodal-frontend-vercel.app',
+              })
+            }}
           >
             함께할 친구 초대하기
           </button>
