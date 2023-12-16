@@ -3,12 +3,12 @@ export const share = {
     title,
     description,
     imageUrl,
-    link,
+    sendUrl,
   }: {
     title: string
     description: string
     imageUrl: string
-    link: string
+    sendUrl: string
   }) => {
     const { Kakao } = window
     if (!Kakao.isInitialized()) {
@@ -22,16 +22,16 @@ export const share = {
         description,
         imageUrl,
         link: {
-          mobileWebUrl: link,
-          webUrl: link,
+          mobileWebUrl: sendUrl,
+          webUrl: sendUrl,
         },
       },
       buttons: [
         {
           title: '웹으로 보기',
           link: {
-            mobileWebUrl: link,
-            webUrl: link,
+            mobileWebUrl: sendUrl,
+            webUrl: sendUrl,
           },
         },
       ],

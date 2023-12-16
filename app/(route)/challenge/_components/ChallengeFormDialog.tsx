@@ -65,12 +65,11 @@ export default function ChallengeFormDialog() {
       },
       {
         onSuccess: ({ data: { challengeId } }) => {
-          console.log('challengeId', challengeId)
           share.kakao({
             title: `${user.nickname}님이 초대장을 보냈어요!`,
             description: '1:1 목표 매칭 서비스',
             imageUrl: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/dodaldodal_square.png',
-            link: `https://dodaldodal-frontend-vercel.app/challenge/${challengeId}`,
+            sendUrl: `https://dodaldodal-frontend-vercel.app/challenge/${challengeId}`,
           })
         },
       }
