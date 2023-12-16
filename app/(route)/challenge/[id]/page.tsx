@@ -2,13 +2,17 @@
 
 import Image from 'next/image'
 
-import { useRef, useState } from 'react'
-
-import CameraIcon from '@/app/_components/icons/CameraIcon'
+import { useState } from 'react'
 
 import CertificationDialog from './_components/certification-dialog'
 
-export default function ChallengeDetailPage() {
+export default function ChallengeDetailPage({
+  params,
+}: {
+  params: {
+    id: number
+  }
+}) {
   const [isOpenCertificationDialog, setIsOpenCertificationDialog] = useState(false)
 
   return (
@@ -19,7 +23,11 @@ export default function ChallengeDetailPage() {
           <span className='h-4 w-fit rounded-[2px] bg-[#FFCD4B] px-1 text-[10px]'>운동</span>
           <div className='flex items-center justify-between'>
             <span className='text-[22px] font-semibold'>하루 스쿼트 100개</span>
-            <CertificationDialog open={isOpenCertificationDialog} setOpen={setIsOpenCertificationDialog} />
+            <CertificationDialog
+              open={isOpenCertificationDialog}
+              setOpen={setIsOpenCertificationDialog}
+              challengeId={params.id}
+            />
           </div>
           <div className='flex items-center gap-[10px]'>
             <div className='relative h-6 w-6 rounded-full bg-white'>

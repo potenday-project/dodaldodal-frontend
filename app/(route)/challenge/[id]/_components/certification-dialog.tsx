@@ -2,19 +2,27 @@ import Image from 'next/image'
 
 import { useRef, useState } from 'react'
 
+import { type AxiosResponse } from 'axios'
+
 import AddPhotoIcon from '@/app/_components/icons/AddPhotoIcon'
 import BlackCloseIcon from '@/app/_components/icons/BlackCloseIcon'
 import CameraIcon from '@/app/_components/icons/CameraIcon'
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/app/_components/shared/dialog'
+import { type ServerError } from '@/app/_service/core/api.types'
+
+import { useSubmitCertificationMutation } from '../queries'
 
 interface CertificationDialogProps {
   open: boolean
   setOpen: (open: boolean) => void
+  challengeId: number
 }
 
-export default function CertificationDialog({ open, setOpen }: CertificationDialogProps) {
+export default function CertificationDialog({ open, setOpen, challengeId }: CertificationDialogProps) {
   const inputRef = useRef<HTMLInputElement>(null)
-  const [selectedImage, setSelectedImage] = useState(null)
+  const [selectedImage, setSelectedImage] = useState<File | null>(null)
+
+  const submitCertificationMutation = useSubmitCertificationMutation()
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -37,23 +45,12 @@ export default function CertificationDialog({ open, setOpen }: CertificationDial
               accept='image/*'
               onChange={(event) => {
                 const file = event.target?.files[0]
-
-                if (file) {
-                  // FileReader를 사용하여 파일을 읽음
-                  const reader = new FileReader()
-
-                  reader.onload = (e) => {
-                    // 파일을 읽은 후에 이미지 URL을 상태에 저장
-                    setSelectedImage(e.target?.result)
-                  }
-
-                  reader.readAsDataURL(file)
-                }
+                setSelectedImage(file)
               }}
             />
             {selectedImage ? (
               <div className='relative mx-auto h-[212px] w-[212px]'>
-                <Image className='rounded-lg' src={selectedImage} fill alt='' />
+                <Image className='rounded-lg' src={URL.createObjectURL(selectedImage)} fill alt='' />
               </div>
             ) : (
               <button
@@ -74,7 +71,28 @@ export default function CertificationDialog({ open, setOpen }: CertificationDial
               >
                 재촬영
               </button>
-              <button className='h-11 w-1/2 rounded-lg bg-[#482BD9] text-sm font-semibold'>확인</button>
+              <button
+                className='h-11 w-1/2 rounded-lg bg-[#482BD9] text-sm font-semibold'
+                onClick={() => {
+                  submitCertificationMutation.mutate(
+                    {
+                      image: selectedImage,
+                      challengeId: challengeId.toString(),
+                    },
+                    {
+                      onSuccess: () => {
+                        setOpen(false)
+                      },
+                      onError: (error: AxiosResponse<ServerError>) => {
+                        alert(error.response.data.message)
+                        setOpen(false)
+                      },
+                    }
+                  )
+                }}
+              >
+                확인
+              </button>
             </div>
           </div>
         </div>

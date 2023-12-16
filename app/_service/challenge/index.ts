@@ -35,3 +35,15 @@ export const approveChallenge = ({ challengeId }: { challengeId: number }) => {
 export const getChallenges = () => {
   return api.get<GetChallengesResponse>('/challenges')
 }
+
+export const submitCertification = ({ image, challengeId }: { image: File; challengeId: string }) => {
+  const formData = new FormData()
+  formData.append('image', image)
+  formData.append('challengeId', challengeId)
+
+  return api.post('/challenges/submit', formData, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  })
+}
