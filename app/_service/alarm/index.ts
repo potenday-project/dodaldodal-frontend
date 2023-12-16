@@ -6,10 +6,22 @@ export const getAlarms = () => {
   return api.get<{ alarms: Alarm[] }>('/alarms')
 }
 
-export const approveCertificationAlarm = ({ challengeCertificationId }: { challengeCertificationId: number }) => {
-  return api.post('/alarms/approve', { challengeCertificationId })
+export const approveCertificationAlarm = ({
+  memberId,
+  challengeCertificationId,
+}: {
+  memberId: number
+  challengeCertificationId: number
+}) => {
+  return api.post('/alarms/approve', { memberId, challengeCertificationId })
 }
 
-export const rejectCertificationAlarm = ({ challengeCertificationId }: { challengeCertificationId: number }) => {
+export const rejectCertificationAlarm = ({
+  memberId,
+  challengeCertificationId,
+}: {
+  memberId: number
+  challengeCertificationId: number
+}) => {
   return api.post('/alarms/reject', { challengeCertificationId })
 }

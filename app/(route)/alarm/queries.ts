@@ -17,16 +17,19 @@ export const useAlarmQuery = () => {
 
 export const useApproveCertificationAlarmMutation = () => {
   return useMutation({
-    mutationFn: ({ challengeCertificationId }: { challengeCertificationId: number }) => {
-      return approveCertificationAlarm({ challengeCertificationId })
+    mutationFn: ({ memberId, challengeCertificationId }: { memberId: number; challengeCertificationId: number }) => {
+      return approveCertificationAlarm({
+        memberId,
+        challengeCertificationId,
+      })
     },
   })
 }
 
 export const useRejectCertificationAlarmMutation = () => {
   return useMutation({
-    mutationFn: ({ challengeCertificationId }: { challengeCertificationId: number }) => {
-      return approveCertificationAlarm({ challengeCertificationId })
+    mutationFn: ({ memberId, challengeCertificationId }: { memberId: number; challengeCertificationId: number }) => {
+      return approveCertificationAlarm({ memberId, challengeCertificationId })
     },
   })
 }

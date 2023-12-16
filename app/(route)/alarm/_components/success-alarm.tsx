@@ -17,7 +17,7 @@ export default function SuccessAlarm({ alarm }: SuccessAlarmProps) {
         </svg>
         <span className='text-[#595959]'>
           업로드한
-          <strong className='text-[#482BD9]'>{alarm.name}</strong> 인증 완료!
+          <strong className='text-[#482BD9]'>{alarm.name} </strong> 인증 완료!
         </span>
       </div>
     </div>
