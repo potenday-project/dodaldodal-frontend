@@ -1,5 +1,7 @@
 import axios from 'axios'
 
+import { type User } from '@/app/_types/user'
+
 import api from '../core/api'
 
 import {
@@ -13,8 +15,8 @@ export const getTokenByAuthorizationCode = async ({ code }: GetTokenFromKakaoPar
   return await axios.get<GetTokenFromKakaoResponse>(`/oauth/callback/kakao/api?code=${code}`)
 }
 
-export const getUsers = () => {
-  return api.get('/users')
+export const getUser = () => {
+  return api.get<User>('/users')
 }
 
 export const login = ({ accessToken }: { accessToken: string }) => {

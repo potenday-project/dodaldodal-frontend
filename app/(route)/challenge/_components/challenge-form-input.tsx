@@ -12,10 +12,10 @@ function Title({ title }: ChallengeFormTitleProps) {
 
 interface ChallengeFormInputProps extends React.HTMLProps<HTMLInputElement> {
   currentLength: number
-  maxLength: number
+  limitLength: number
 }
 
-function Input({ currentLength, maxLength, ...props }: ChallengeFormInputProps) {
+function Input({ currentLength, limitLength, ...props }: ChallengeFormInputProps) {
   return (
     <div className='flex w-full justify-between gap-2 rounded-lg border border-[#140A29] bg-white p-3'>
       <input
@@ -23,7 +23,7 @@ function Input({ currentLength, maxLength, ...props }: ChallengeFormInputProps) 
         {...props}
       />
       <span className='text-[10px] text-[#595959]'>
-        {currentLength}/{maxLength}
+        {currentLength}/{limitLength}
       </span>
     </div>
   )

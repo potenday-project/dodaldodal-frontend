@@ -8,7 +8,7 @@ import CoreProvider from '@/app/_components/providers/CoreProvider'
 import { cn } from '@/app/_styles/utils'
 
 const myFont = localFont({
-  src: '../_assets/fonts/PretendardVariable.woff2',
+  src: '../app/_assets/fonts/PretendardVariable.woff2',
   display: 'swap',
 })
 

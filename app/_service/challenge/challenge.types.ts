@@ -5,3 +5,16 @@ export interface GetTodayStatus {
   explorationCount: number
   certificatedCount: number
 }
+
+export type Category = 'LIFE_STYLES' | 'SELF_DEVELOPMENT' | 'STUDY' | 'WORKOUT' | 'ETC'
+
+export interface CreateChallengeParams {
+  name: string
+  category: Category
+  authenticationMethod: string
+  reward: string
+}
+
+export interface CreateChallengeResponse {
+  challengeId: number
+}
