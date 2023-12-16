@@ -10,6 +10,7 @@ const config: Config = {
       backgroundImage: {
         'login-background': "url('https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/login_background.png')",
         'home-background': "url('https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/home_background.png')",
+        'challenge-background': "url('https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/challenge_background.png')",
       },
       backgroundColor: {
         'dodal-main': '#140A29',
