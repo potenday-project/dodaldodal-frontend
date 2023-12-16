@@ -9,6 +9,7 @@ import {
   type GetTokenFromKakaoParams,
   type GetTokenFromKakaoResponse,
   type SignUpParams,
+  type UserStatus,
 } from './auth.types'
 
 export const getTokenByAuthorizationCode = async ({ code }: GetTokenFromKakaoParams) => {
@@ -25,4 +26,8 @@ export const login = ({ accessToken }: { accessToken: string }) => {
 
 export const signUp = ({ accessToken, nickname, champion }: SignUpParams) => {
   return api.post('/users/signUp', { accessToken, nickname, champion })
+}
+
+export const getUserStatus = () => {
+  return api.get<UserStatus>('/users/status')
 }

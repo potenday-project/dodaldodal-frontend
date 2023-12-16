@@ -7,6 +7,7 @@ import {
   type GetUpcomingChallengeParams,
   type GetUpcomingChallengeResponse,
   type GetChallengesResponse,
+  type GetChallengeDetail,
 } from './challenge.types'
 
 export const getTodayStatus = () => {
@@ -46,4 +47,8 @@ export const submitCertification = ({ image, challengeId }: { image: File; chall
       'Content-Type': 'multipart/form-data',
     },
   })
+}
+
+export const getChallengeDetail = ({ challengeId }: { challengeId: number }) => {
+  return api.get<GetChallengeDetail>(`/challenges/in-progress/${challengeId}`)
 }

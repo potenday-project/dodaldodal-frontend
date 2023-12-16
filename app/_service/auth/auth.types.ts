@@ -21,3 +21,9 @@ export interface SignUpParams {
   nickname: string
   champion: Champion
 }
+
+export interface UserStatus {
+  completedCount: number
+  friendCount: number
+  startedCount: number
+}

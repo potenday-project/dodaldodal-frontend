@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { useState } from 'react'
 
 import CertificationDialog from './_components/certification-dialog'
+import { useChallengeDetailQuery } from './queries'
 
 export default function ChallengeDetailPage({
   params,
@@ -14,6 +15,15 @@ export default function ChallengeDetailPage({
   }
 }) {
   const [isOpenCertificationDialog, setIsOpenCertificationDialog] = useState(false)
+  const challengeDetailQuery = useChallengeDetailQuery({ challengeId: params.id })
+
+  if (!challengeDetailQuery.isSuccess) {
+    return null
+  }
+
+  const result = challengeDetailQuery.data.data
+
+  console.log(result)
 
   return (
     <div className='flex-1 overflow-y-auto'>

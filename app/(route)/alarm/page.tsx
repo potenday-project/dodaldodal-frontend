@@ -1,9 +1,20 @@
+'use client'
+
 import { UserContextProvider } from '@/app/_components/providers/UserProvider'
 
 import BackButton from './_components/BackButton'
-import RequestAlarm from './_components/requestAlarm'
+import ReRequestAlarm from './_components/re-request-alarm'
+import RequestAlarm from './_components/request-alarm'
+import SuccessAlarm from './_components/success-alarm'
+import { useAlarmQuery } from './queries'
 
 export default function AlarmPage() {
+  const alarmQuery = useAlarmQuery()
+
+  if (!alarmQuery.isSuccess) {
+    return null
+  }
+
   return (
     <UserContextProvider>
       <main className='flex flex-col gap-3'>
@@ -14,9 +25,21 @@ export default function AlarmPage() {
         </header>
 
         <div className='flex flex-col gap-3 px-4 pb-6'>
-          <RequestAlarm />
-          <RequestAlarm />
-          <RequestAlarm />
+          {alarmQuery.data.data.alarms.map((alarm) => {
+            if (alarm.alarm_type === 'REQUEST') {
+              return <RequestAlarm key={alarm.id} alarm={alarm} />
+            }
+
+            if (alarm.alarm_type === 'SUCCESS') {
+              return <SuccessAlarm key={alarm.id} alarm={alarm} />
+            }
+
+            if (alarm.alarm_type === 'RE-REQUEST') {
+              return <ReRequestAlarm key={alarm.id} alarm={alarm} />
+            }
+
+            return null
+          })}
         </div>
       </main>
     </UserContextProvider>

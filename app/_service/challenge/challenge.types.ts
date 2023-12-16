@@ -39,3 +39,17 @@ export interface Challenge {
 }
 
 export type GetChallengesResponse = Challenge[]
+
+export interface ChallengeDetail {
+  id: number
+  nickname: string
+  champion: Champion
+  participation_count: number
+  challenge_name: string
+  category: Category
+  reward: string
+}
+
+export type GetChallengeDetail = ChallengeDetail[] & {
+  myId: number
+}

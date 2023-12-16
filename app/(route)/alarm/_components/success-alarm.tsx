@@ -1,6 +1,10 @@
-import Image from 'next/image'
+import { type Alarm } from '@/app/_service/alarm/alarm.types'
 
-export default function RequestAlarm() {
+interface SuccessAlarmProps {
+  alarm: Alarm
+}
+
+export default function SuccessAlarm({ alarm }: SuccessAlarmProps) {
   return (
     <div className='flex flex-col gap-3 rounded-xl bg-[#D9D9D9] p-4'>
       <div className='flex items-center gap-2 px-3'>
@@ -12,13 +16,9 @@ export default function RequestAlarm() {
           />
         </svg>
         <span className='text-[#595959]'>
-          <strong className='text-[#482BD9]'>매일 일기쓰기</strong> 인증 요청이 도착했어요!
+          업로드한
+          <strong className='text-[#482BD9]'>{alarm.name}</strong> 인증 완료!
         </span>
-      </div>
-      <div className='px-6'>
-        <div className='relative aspect-square w-full'>
-          <Image className='rounded-lg' src='/images/TEST_IMAGE.jpeg' fill alt='' />
-        </div>
       </div>
     </div>
   )

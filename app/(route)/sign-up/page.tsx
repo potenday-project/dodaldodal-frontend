@@ -13,7 +13,7 @@ import { getKakaoAccessToken, removeKakaoAccessToken, setAccessToken } from '@/a
 
 import { useLoginQuery, useSignUpMutation } from './queries'
 
-const CHAMPION = {
+export const CHAMPION = {
   DEFAULT: {
     RED: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_red.png',
     YELLOW: 'https://dodals3.s3.ap-northeast-2.amazonaws.com/asset/profile_yellow.png',
