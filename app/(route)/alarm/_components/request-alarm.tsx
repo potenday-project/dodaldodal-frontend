@@ -34,7 +34,7 @@ export default function RequestAlarm({ alarm }: RequestAlarmProps) {
       </div>
       <div className=''>
         <div className='relative aspect-square w-full'>
-          <Image className='rounded-lg' src={alarm.authenticateImageUrl} fill alt='' />
+          <Image className='rounded-lg object-cover' src={alarm.authenticateImageUrl} fill alt='' />
         </div>
       </div>
       <div className='flex gap-2 '>

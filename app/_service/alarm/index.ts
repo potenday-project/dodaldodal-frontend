@@ -7,21 +7,21 @@ export const getAlarms = () => {
 }
 
 export const approveCertificationAlarm = ({
-  memberId,
+  alarmId,
   challengeCertificationId,
 }: {
-  memberId: number
+  alarmId: number
   challengeCertificationId: number
 }) => {
-  return api.post('/alarms/approve', { memberId, challengeCertificationId })
+  return api.post('/alarms/approve', { alarmId, challengeCertificationId })
 }
 
 export const rejectCertificationAlarm = ({
-  memberId,
+  alarmId,
   challengeCertificationId,
 }: {
-  memberId: number
+  alarmId: number
   challengeCertificationId: number
 }) => {
-  return api.post('/alarms/reject', { challengeCertificationId })
+  return api.post('/alarms/reject', { alarmId, challengeCertificationId })
 }

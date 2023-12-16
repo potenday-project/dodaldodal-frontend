@@ -17,9 +17,9 @@ export const useAlarmQuery = () => {
 
 export const useApproveCertificationAlarmMutation = () => {
   return useMutation({
-    mutationFn: ({ memberId, challengeCertificationId }: { memberId: number; challengeCertificationId: number }) => {
+    mutationFn: ({ alarmId, challengeCertificationId }: { alarmId: number; challengeCertificationId: number }) => {
       return approveCertificationAlarm({
-        memberId,
+        alarmId,
         challengeCertificationId,
       })
     },
@@ -28,8 +28,8 @@ export const useApproveCertificationAlarmMutation = () => {
 
 export const useRejectCertificationAlarmMutation = () => {
   return useMutation({
-    mutationFn: ({ memberId, challengeCertificationId }: { memberId: number; challengeCertificationId: number }) => {
-      return approveCertificationAlarm({ memberId, challengeCertificationId })
+    mutationFn: ({ alarmId, challengeCertificationId }: { alarmId: number; challengeCertificationId: number }) => {
+      return approveCertificationAlarm({ alarmId, challengeCertificationId })
     },
   })
 }
