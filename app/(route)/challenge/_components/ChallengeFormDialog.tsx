@@ -10,7 +10,6 @@ import BlackCloseIcon from '@/app/_components/icons/BlackCloseIcon'
 import { Dialog, DialogClose, DialogContent, DialogTrigger } from '@/app/_components/shared/dialog'
 import { cn } from '@/app/_styles/utils'
 
-import ChallengeFormInput from './challenge-form-input'
 import ChallengeForm from './challenge-form-input'
 
 type Category = '자기계발' | '생활습관' | '공부' | '운동' | '기타' | '선택안함'
@@ -68,7 +67,10 @@ export default function ChallengeFormDialog() {
             </div>
             <ChallengeForm>
               <ChallengeForm.Title title='인증 방식' />
-              <ChallengeForm.Input currentLength={0} maxLength={8} placeholder='어떤 사물을 찍어서 인증할까요?' />
+              <div className='flex w-full items-center gap-4'>
+                <ChallengeForm.Input currentLength={0} maxLength={8} placeholder='어떤 사물을 찍어서 인증할까요?' />
+                <span className='whitespace-nowrap text-sm font-semibold text-[#140A29]'>찍기</span>
+              </div>
             </ChallengeForm>
             <ChallengeForm>
               <ChallengeForm.Title title='보상' />

@@ -13,7 +13,7 @@ interface ChallengeFormInputProps extends React.HTMLProps<HTMLInputElement> {
 
 function Input({ currentLength, maxLength, ...props }: ChallengeFormInputProps) {
   return (
-    <div className='flex justify-between gap-2 rounded-lg border border-[#140A29] bg-white p-3'>
+    <div className='flex w-full justify-between gap-2 rounded-lg border border-[#140A29] bg-white p-3'>
       <input
         className='flex-1 appearance-none text-xs text-[#595959] placeholder:text-xs placeholder:text-[#A6A6A6] focus:ring-0'
         {...props}
