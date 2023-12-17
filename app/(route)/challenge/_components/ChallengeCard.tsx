@@ -23,7 +23,7 @@ export default function ChallengeCard({ challenge }: ChallengeCardProps) {
         <span className='w-fit rounded-sm bg-[#F6A0AB] p-1 text-center text-[10px]'>자기계발</span>
         <span className='text-lg font-semibold text-[#595959]'>{challenge.name}</span>
         <span className='text-[10px] text-[#595959]'>{challenge.reward}</span>
-        <span>10%</span>
+        {/* <span>10%</span> */}
       </div>
       <button className='ml-[2px]'>
         <RightArrowIcon />
