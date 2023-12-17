@@ -42,7 +42,7 @@ export default function MePage() {
 
   return (
     <div className='pb-20 pt-28'>
-      <div className='mb-5 flex flex-col gap-5 border-b border-white pb-6'>
+      <div className='mx-6 mb-5 flex flex-col gap-5 border-b border-white pb-6'>
         <div className='flex flex-col items-center gap-3'>
           <Image
             className='rounded-full bg-white'
@@ -71,7 +71,7 @@ export default function MePage() {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-4'>
+      <div className='flex flex-col gap-4 px-6'>
         <div className='flex justify-between px-2'>
           <span className='text-xl font-semibold'>달달 뱃지</span>
           <Link href={ROUTE.BADGES}>
