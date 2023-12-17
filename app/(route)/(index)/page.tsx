@@ -34,7 +34,7 @@ export default function HomePage() {
       <div className='mt-3 text-xl'>🌕 탐사 완료 {certificatedCount}</div>
 
       <div className='absolute bottom-[10%] right-10'>
-        <div className='relative aspect-[421/635] h-[50vh] w-full'>
+        <div className='relative aspect-[421/635] h-[45vh] w-full'>
           <Image src={CHAMPION[champion]} fill alt={champion} />
         </div>
       </div>
