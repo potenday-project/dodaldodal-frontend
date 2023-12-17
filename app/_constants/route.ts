@@ -6,6 +6,7 @@ export const ROUTE = {
   CHALLENGE_DETAIL: (id: number) => `/challenge/${id}`,
   ALARM: '/alarm',
   ME: '/me',
+  BADGES: '/badges',
   OAUTH: {
     KAKAO: {
       CALLBACK: '/oauth/callback/kakao',
