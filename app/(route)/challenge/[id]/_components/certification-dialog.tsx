@@ -42,7 +42,7 @@ export default function CertificationDialog({ open, setOpen, challengeId }: Cert
               className='hidden'
               ref={inputRef}
               type='file'
-              accept='image/*'
+              accept='image/jpeg, image/png, image/jpg'
               onChange={(event) => {
                 const file = event.target?.files[0]
                 setSelectedImage(file)
