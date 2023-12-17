@@ -33,8 +33,8 @@ export default function HomePage() {
       <div className='text-xl'>🌙 탐사 필요 {explorationCount}</div>
       <div className='mt-3 text-xl'>🌕 탐사 완료 {certificatedCount}</div>
 
-      <div className='absolute bottom-[7%] right-2'>
-        <div className='relative aspect-[297/529] h-[60vh] w-full'>
+      <div className='absolute bottom-[10%] right-10'>
+        <div className='relative aspect-[421/635] h-[50vh] w-full'>
           <Image src={CHAMPION[champion]} fill alt={champion} />
         </div>
       </div>
