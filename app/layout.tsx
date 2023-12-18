@@ -1,5 +1,6 @@
 import localFont from 'next/font/local'
 
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 
 import '@/app/_styles/globals.css'
@@ -40,7 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='icon' href='../../favicon.ico' sizes='any' />
       </head>
       <body className={cn(myFont.className, 'mx-auto max-w-lg text-white')}>
-        <CoreProvider>{children}</CoreProvider>
+        <CoreProvider>
+          {children}
+          <Analytics />
+        </CoreProvider>
       </body>
     </html>
   )
