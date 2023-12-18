@@ -7,10 +7,10 @@ const getAppEnv = (): AppEnv => (process.env.NEXT_PUBLIC_APP_ENV as Exclude<AppE
 export const getApiEndpoint = () => {
   switch (getAppEnv()) {
     case 'production':
-      return SERVER_URL + '/api'
+      return 'https://dodaldodal-frontend.vercel.app/api'
     case 'development':
-      return SERVER_URL + '/api'
+      return 'http://localhost:4000/api'
     default:
-      return SERVER_URL + '/api'
+      return 'http://localhost:4000/api'
   }
 }
